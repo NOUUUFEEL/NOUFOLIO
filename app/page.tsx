@@ -12,7 +12,7 @@ import { AnimatedSection } from "@/components/animated-section"
 import { AnimatedItem } from "@/components/animated-item"
 import { Navbar } from "@/components/navbar"
 import { ScrollLink } from "@/components/scroll-link"
-import { ContactForm } from "@/components/contact-form"
+import { ContactFormEnhanced } from "@/components/contact-form-enhanced"
 import Image from "next/image"
 
 export default function Home() {
@@ -46,7 +46,8 @@ export default function Home() {
         "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       technologies: ["Python", "Scikit-learn", "Pandas"],
       codeLink: "https://github.com/NOUUUFEEL/Employee-Retention-Predictor",
-      demoLink: "#",
+      demoLink:
+        "https://hub.2i2c.mybinder.org/user/nouuufeel-emplo-ntion-predictor-7hf09zip/lab/tree/AI%20DELIVERABLE%20FINAL.ipynb",
     },
     {
       title: "CTH Web Platform",
@@ -349,7 +350,7 @@ export default function Home() {
                 </AnimatedItem>
 
                 <AnimatedItem direction="right">
-                  <ContactForm />
+                  <ContactFormEnhanced />
                 </AnimatedItem>
               </div>
             </div>

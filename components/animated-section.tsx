@@ -20,7 +20,12 @@ export function AnimatedSection({ children, className, id, direction = "up", del
     <section
       id={id}
       ref={ref}
-      className={cn(directionClass, "transition-all duration-700 ease-out", delay && `delay-${delay}`, className)}
+      className={cn(
+        directionClass,
+        "transition-all duration-700 ease-out will-change-transform",
+        delay && `delay-${delay}`,
+        className,
+      )}
     >
       {children}
     </section>

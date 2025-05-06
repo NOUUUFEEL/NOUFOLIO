@@ -9,8 +9,8 @@ export function useActiveSection() {
     const sections = document.querySelectorAll("section[id]")
 
     const observerOptions = {
-      rootMargin: "-80px 0px -80% 0px", // Adjust rootMargin to determine when a section is considered active
-      threshold: 0,
+      rootMargin: "-10% 0px -80% 0px", // Adjust rootMargin to determine when a section is considered active
+      threshold: [0.1, 0.2, 0.3, 0.4, 0.5], // Multiple thresholds for better detection
     }
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {

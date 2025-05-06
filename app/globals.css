@@ -172,3 +172,17 @@ section[id] {
   scroll-snap-align: start;
   scroll-snap-stop: always;
 }
+
+/* Animation reset - ensures animations play every time */
+.opacity-0 {
+  transition-property: opacity, transform;
+}
+
+.opacity-100 {
+  transition-property: opacity, transform;
+}
+
+/* Improve animation performance */
+.will-change-transform {
+  will-change: transform, opacity;
+}

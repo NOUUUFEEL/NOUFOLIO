@@ -18,7 +18,7 @@ export function AnimatedItem({ children, className, direction = "up", delay = "0
   return (
     <div
       ref={ref}
-      className={cn(directionClass, "transition-all duration-700 ease-out", className)}
+      className={cn(directionClass, "transition-all duration-700 ease-out will-change-transform", className)}
       style={{ transitionDelay: delay }}
     >
       {children}

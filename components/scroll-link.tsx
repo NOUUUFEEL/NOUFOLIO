@@ -10,10 +10,16 @@ interface ScrollLinkProps {
   children: ReactNode
   className?: string
   onClick?: () => void
+  target?: string
 }
 
-export function ScrollLink({ href, children, className, onClick }: ScrollLinkProps) {
+export function ScrollLink({ href, children, className, onClick, target }: ScrollLinkProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // If it's an external link or has a target, don't handle the scroll behavior
+    if (target === "_blank" || href.startsWith("http") || href.startsWith("mailto:")) {
+      return
+    }
+
     e.preventDefault()
 
     // Get the target element
@@ -40,7 +46,13 @@ export function ScrollLink({ href, children, className, onClick }: ScrollLinkPro
   }
 
   return (
-    <a href={href} onClick={handleClick} className={cn(className)}>
+    <a
+      href={href}
+      onClick={handleClick}
+      className={cn(className)}
+      target={target}
+      rel={target === "_blank" ? "noopener noreferrer" : undefined}
+    >
       {children}
     </a>
   )

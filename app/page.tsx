@@ -2,6 +2,8 @@
 
 import { Github, Linkedin, Mail, ExternalLink, ArrowRight, Download } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
+import { useState, useEffect } from "react"
+import { ResumeViewer } from "@/components/resume-viewer"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -15,6 +17,15 @@ import Image from "next/image"
 
 export default function Home() {
   const { t } = useLanguage()
+  const [isResumeOpen, setIsResumeOpen] = useState(false)
+
+  // Make each section take full screen height
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]")
+    sections.forEach((section) => {
+      section.classList.add("min-h-screen", "flex", "flex-col", "justify-center")
+    })
+  }, [])
 
   const projects = [
     {
@@ -24,6 +35,8 @@ export default function Home() {
       image:
         "https://images.pexels.com/photos/260598/pexels-photo-260598.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       technologies: ["Laravel", "MySQL", "Bootstrap"],
+      codeLink: "#",
+      demoLink: "#",
     },
     {
       title: "Employee Retention Predictor",
@@ -32,6 +45,8 @@ export default function Home() {
       image:
         "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       technologies: ["Python", "Scikit-learn", "Pandas"],
+      codeLink: "https://github.com/NOUUUFEEL/Employee-Retention-Predictor",
+      demoLink: "#",
     },
     {
       title: "CTH Web Platform",
@@ -40,6 +55,8 @@ export default function Home() {
       image:
         "https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       technologies: ["Next.js", "FastAPI", "PostgreSQL"],
+      codeLink: "#",
+      demoLink: "#",
     },
   ]
 
@@ -48,7 +65,7 @@ export default function Home() {
       <Navbar />
 
       <main className="flex-1">
-        <AnimatedSection id="hero" className="pt-24 pb-16 md:pt-32 md:pb-24">
+        <AnimatedSection id="hero" className="pt-24 pb-16 md:pt-32 md:pb-24 min-h-screen flex items-center">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <AnimatedItem direction="left" className="space-y-6">
@@ -89,7 +106,11 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection id="about" className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900" direction="right">
+        <AnimatedSection
+          id="about"
+          className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900 min-h-screen flex items-center"
+          direction="right"
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8">{t("aboutMe")}</h2>
@@ -97,22 +118,21 @@ export default function Home() {
                 <p className="transition-all duration-300 hover:translate-x-1">{t("aboutParagraph1")}</p>
                 <p className="transition-all duration-300 hover:translate-x-1">{t("aboutParagraph2")}</p>
                 <div className="pt-6">
-                  <ScrollLink href="/CV-OUANOUGHI-NOUFEL.pdf" target="_blank">
-                    <Button
-                      variant="outline"
-                      className="border-blue-900 dark:border-blue-400 text-blue-900 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 dark:hover:bg-opacity-20 transition-all duration-300 hover:translate-y-[-2px]"
-                    >
-                      <Download className="mr-2 h-4 w-4" />
-                      {t("downloadResume")}
-                    </Button>
-                  </ScrollLink>
+                  <Button
+                    variant="outline"
+                    className="border-blue-900 dark:border-blue-400 text-blue-900 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 dark:hover:bg-opacity-20 transition-all duration-300 hover:translate-y-[-2px]"
+                    onClick={() => setIsResumeOpen(true)}
+                  >
+                    <Download className="mr-2 h-4 w-4" />
+                    {t("downloadResume")}
+                  </Button>
                 </div>
               </div>
             </div>
           </div>
         </AnimatedSection>
 
-        <AnimatedSection id="skills" className="py-16 md:py-24" direction="left">
+        <AnimatedSection id="skills" className="py-16 md:py-24 min-h-screen flex items-center" direction="left">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8">{t("skillsExpertise")}</h2>
@@ -127,13 +147,10 @@ export default function Home() {
                       JavaScript
                     </Badge>
                     <Badge className="bg-blue-100 text-blue-900 dark:bg-blue-900 dark:bg-opacity-30 dark:text-blue-100 hover:bg-blue-200 dark:hover:bg-blue-900 dark:hover:bg-opacity-40 transition-colors duration-300">
-                      TypeScript
-                    </Badge>
-                    <Badge className="bg-blue-100 text-blue-900 dark:bg-blue-900 dark:bg-opacity-30 dark:text-blue-100 hover:bg-blue-200 dark:hover:bg-blue-900 dark:hover:bg-opacity-40 transition-colors duration-300">
                       Python
                     </Badge>
                     <Badge className="bg-blue-100 text-blue-900 dark:bg-blue-900 dark:bg-opacity-30 dark:text-blue-100 hover:bg-blue-200 dark:hover:bg-blue-900 dark:hover:bg-opacity-40 transition-colors duration-300">
-                      Java
+                      C
                     </Badge>
                     <Badge className="bg-blue-100 text-blue-900 dark:bg-blue-900 dark:bg-opacity-30 dark:text-blue-100 hover:bg-blue-200 dark:hover:bg-blue-900 dark:hover:bg-opacity-40 transition-colors duration-300">
                       C++
@@ -190,7 +207,11 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection id="projects" className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900" direction="right">
+        <AnimatedSection
+          id="projects"
+          className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900 min-h-screen flex items-center"
+          direction="right"
+        >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8 text-center">
               {t("featuredProjects")}
@@ -220,7 +241,7 @@ export default function Home() {
                         ))}
                       </div>
                       <div className="flex gap-2 mt-auto">
-                        <ScrollLink href="#" target="_blank">
+                        <ScrollLink href={project.codeLink} target="_blank">
                           <Button
                             variant="outline"
                             size="sm"
@@ -230,7 +251,7 @@ export default function Home() {
                             {t("code")}
                           </Button>
                         </ScrollLink>
-                        <ScrollLink href="#" target="_blank">
+                        <ScrollLink href={project.demoLink} target="_blank">
                           <Button
                             size="sm"
                             className="bg-blue-900 hover:bg-blue-800 text-white transition-all duration-300 hover:translate-y-[-2px]"
@@ -257,7 +278,7 @@ export default function Home() {
           </div>
         </AnimatedSection>
 
-        <AnimatedSection id="contact" className="py-16 md:py-24" direction="up">
+        <AnimatedSection id="contact" className="py-16 md:py-24 min-h-screen flex items-center" direction="up">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl font-bold text-blue-900 dark:text-blue-400 mb-8 text-center">
@@ -304,7 +325,7 @@ export default function Home() {
                         <Github className="h-5 w-5" />
                       </Button>
                     </ScrollLink>
-                    <ScrollLink href="https://www.linkedin.com/in/ouanoughi-noufel-9a3253257" target="_blank">
+                    <ScrollLink href="https://github.com/NOUUUFEEL" target="_blank">
                       <Button
                         variant="outline"
                         size="icon"
@@ -343,6 +364,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <ResumeViewer isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </div>
   )
 }

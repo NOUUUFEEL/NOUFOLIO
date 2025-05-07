@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   title: "OUANOUGHI Noufel - Computer Science Engineering Student",
   description:
     "Portfolio website for OUANOUGHI Noufel, a Computer Science Engineering Student at CESI École d'Ingénieurs in Toulouse",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-icon.png", type: "image/svg+xml" }],
+  },
     generator: 'v0.dev'
 }
 

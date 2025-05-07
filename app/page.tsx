@@ -36,7 +36,7 @@ export default function Home() {
         "https://images.pexels.com/photos/260598/pexels-photo-260598.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       technologies: ["Laravel", "MySQL", "Bootstrap"],
       codeLink: "#",
-      demoLink: "#",
+      demoLink: "/projects/pool-registration-portal",
     },
     {
       title: "Employee Retention Predictor",
@@ -57,7 +57,7 @@ export default function Home() {
         "https://images.pexels.com/photos/159306/construction-site-build-construction-work-159306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       technologies: ["Next.js", "FastAPI", "PostgreSQL"],
       codeLink: "#",
-      demoLink: "#",
+      demoLink: "/projects/cth-web-platform",
     },
   ]
 
@@ -326,7 +326,7 @@ export default function Home() {
                         <Github className="h-5 w-5" />
                       </Button>
                     </ScrollLink>
-                    <ScrollLink href="https://github.com/NOUUUFEEL" target="_blank">
+                    <ScrollLink href="www.linkedin.com/in/ouanoughi-noufel09" target="_blank">
                       <Button
                         variant="outline"
                         size="icon"

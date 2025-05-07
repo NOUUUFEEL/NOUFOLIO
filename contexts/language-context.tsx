@@ -46,6 +46,8 @@ const translations: Translations = {
     messageSentDescription: "Thank you for your message. I'll get back to you soon.",
     messageError: "Message Failed",
     messageErrorDescription: "There was an error sending your message. Please try again.",
+    backToProjects: "Back to Projects",
+    projectScreenshots: "Project Screenshots",
 
     // Personal Info
     fullName: "OUANOUGHI Noufel",
@@ -107,6 +109,8 @@ const translations: Translations = {
     messageSentDescription: "Merci pour votre message. Je vous répondrai bientôt.",
     messageError: "Échec du Message",
     messageErrorDescription: "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.",
+    backToProjects: "Retour aux Projets",
+    projectScreenshots: "Captures d'écran du Projet",
 
     // Personal Info
     fullName: "OUANOUGHI Noufel",

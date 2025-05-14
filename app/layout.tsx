@@ -26,11 +26,9 @@ export const metadata: Metadata = {
   description:
     "Portfolio website for OUANOUGHI Noufel, a Computer Science Engineering Student at CESI École d'Ingénieurs in Toulouse",
   icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon.png", type: "image/svg+xml" },
-    ],
-    apple: [{ url: "/apple-icon.png", type: "image/svg+xml" }],
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
     generator: 'v0.dev'
 }
@@ -42,6 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className={`scroll-smooth ${poppins.variable} ${montserrat.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body className="font-poppins">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <LanguageProvider>{children}</LanguageProvider>
